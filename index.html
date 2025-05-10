@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<!--
+  File: index.html
+  Description: Displays 7-day hourly temperature forcast on a line chart accompanied
+  by a time table using data from open-meteo API. Bootstrap 3.4.1 used for UI.
+  Chart.js used for chart UI and logic.
+-->
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coding with a Chance of Dream Weather App</title>
+
+        <!-- Bootstrap 3 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- Local CSS -->
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- Bootstrap 3 Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <!-- Chart Script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+        <!-- Local Script -->
+        <script src="scripts/temperature.js" defer></script>
+    </head>
+
+    <body>
+
+        <!-- Navigation Bar Section -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+
+                <!-- Navbar Header (left) -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">DreamWeather</a>
+                </div>
+
+                <!-- Navbar Page Navigation -->
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Temperature</a></li>
+                    <li><a href="conditions.html">Conditions</a></li>
+                </ul>
+
+                <!-- Navbar Latitude and Longitude Fields and Buttons (right) -->
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+
+                        <!-- Latitude and Longitude Fields -->
+                        <input id="latitude" type="number" class="form-control navbar-inverse form-color" placeholder="Latitude" max=90 min=-90 step="any"/>
+                        <input id="longitude" type="number" class="form-control navbar-inverse form-color" placeholder="Longitude" max=180 min=-180 step="any"/>
+
+                        <!-- Submit Button -->
+                        <button id="submit" class="btn btn-default navbar-inverse form-color" type="submit" title="Submit coordinates.">
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </button>
+
+                        <!-- Reset Button -->
+                        <button id="reset" class="btn btn-default navbar-inverse form-color" title="Reset coordinates.">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </button>
+                    </div>
+                </form>  
+            </div>
+        </nav>
+
+        <!-- Page Header and Temperature Chart -->
+        <div class="container">
+            <h2 id="header">Temperature</h2>
+            <div>
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Temperature Table -->
+        <div id="root" class="container table-color">
+            <table class="table">
+
+                <!-- Table Header -->
+                <thead>
+                    <tr>
+                        <th>Time (UTC)</th>
+                        <th>Temperature</th>
+                    </tr>
+                </thead>
+
+                <!-- Table Body dynamically filled by temperature.js -->
+                <tbody id="content"></tbody>
+            </table>
+        </div>
+    </body>
+
+</html>

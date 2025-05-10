@@ -1,0 +1,21 @@
+/* Creates a background gradient */
+body {
+    background: linear-gradient(#c4e4ff, #ffffff);
+    background-attachment: fixed;
+}
+
+/* Sets the color of the background and text in forms */
+.form-color {
+    background-color: rgb(42, 41, 54);
+    color: rgb(214, 214, 214);
+}
+
+/* Sets the color of text in the table */
+.table-color {
+    color: rgb(94, 94, 94);
+}
+
+/* Removes rounded corners from the navbar */
+.navbar {
+    border-radius: 0;
+}
